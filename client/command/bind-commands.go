@@ -300,6 +300,7 @@ func BindCommands(app *grumble.App, server *core.SliverServer) {
 			f.Bool("x", "limit-domainjoined", false, "limit execution to domain joined machines")
 			f.String("y", "limit-username", "", "limit execution to specified username")
 			f.String("z", "limit-hostname", "", "limit execution to specified hostname")
+			f.String("h", "host-header", "", "specify the http host header (Domain fronting)")
 
 			f.String("r", "format", "exe", "Specifies the output formats, valid values are: 'exe', 'shared' (for dynamic libraries) and 'shellcode' (windows only)")
 

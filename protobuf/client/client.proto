@@ -66,6 +66,8 @@ message SliverConfig {
   string CACert = 4;
   string Cert = 5;
   string Key = 6;
+  // Domain fronting
+  string Hostheader = 12;
   bool Debug = 7;
   bool ObfuscateSymbols = 30;
 
