@@ -312,9 +312,9 @@ func parseCompileFlags(ctx *grumble.Context) *clientpb.SliverConfig {
 
 
 	// Domain fronting (TODO take the domain as header if host headers doesn't exist)
-	//hostHeader := ctx.Flags.String("host-header")
+	hostHeader := ctx.Flags.String("host-header")
 	//fmt.Printf("Hostheader: %s",hostHeader)
-	hostHeader := "host-header"
+	//hostHeader := "host-headerdasda"
 
 	config := &clientpb.SliverConfig{
 		GOOS:             targetOS,

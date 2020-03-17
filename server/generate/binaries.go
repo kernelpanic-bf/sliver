@@ -91,6 +91,7 @@ type SliverConfig struct {
 	CACert              string `json:"ca_cert"`
 	Cert                string `json:"cert"`
 	Key                 string `json:"key"`
+	Hostheader          string `json:"hostheader"`
 	Debug               bool   `json:"debug"`
 	ObfuscateSymbols    bool   `json:"obfuscate_symbols"`
 	ReconnectInterval   int    `json:"reconnect_interval"`
@@ -126,6 +127,7 @@ func (c *SliverConfig) ToProtobuf() *clientpb.SliverConfig {
 		CACert:           c.CACert,
 		Cert:             c.Cert,
 		Key:              c.Key,
+		Hostheader:              c.Hostheader,
 		Debug:            c.Debug,
 		ObfuscateSymbols: c.ObfuscateSymbols,
 		CanaryDomains:    c.CanaryDomains,
@@ -160,6 +162,7 @@ func SliverConfigFromProtobuf(pbConfig *clientpb.SliverConfig) *SliverConfig {
 	cfg.CACert = pbConfig.CACert
 	cfg.Cert = pbConfig.Cert
 	cfg.Key = pbConfig.Key
+	cfg.Hostheader = pbConfig.Hostheader
 	cfg.Debug = pbConfig.Debug
 	cfg.ObfuscateSymbols = pbConfig.ObfuscateSymbols
 	cfg.CanaryDomains = pbConfig.CanaryDomains

